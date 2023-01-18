@@ -85,7 +85,7 @@ func SignTransaction(tx *types.Transaction, chainID *big.Int, privateKey *ecdsa.
 }
 
 func GetEVMAccountFromMnemonic(mnemonic string, accountIndex uint64) (*ecdsa.PrivateKey, common.Address, error) {
-	privateKey, err := generateEthPrivateKeyFromGanacheMnemonic(mnemonic, accountIndex)
+	privateKey, err := generateEthPrivateKeyFromMnemonic(mnemonic, accountIndex)
 	if err != nil {
 		return nil, common.Address{}, err
 	}
@@ -106,8 +106,8 @@ func generatePublicKeyFromPrivateKey(privateKey *ecdsa.PrivateKey) (common.Addre
 	return fromAddress, nil
 }
 
-func generateEthPrivateKeyFromGanacheMnemonic(mnomc string, accountIndex uint64) (*ecdsa.PrivateKey, error) {
-	wallet, err := hdwallet.NewFromMnemonic(mnomc)
+func generateEthPrivateKeyFromMnemonic(mnemonic string, accountIndex uint64) (*ecdsa.PrivateKey, error) {
+	wallet, err := hdwallet.NewFromMnemonic(mnemonic)
 	if err != nil {
 		return nil, err
 	}
