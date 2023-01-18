@@ -6,9 +6,8 @@ import (
 )
 
 type Config struct {
-	INFURA_KEY  string `json:"INFURA_KEY"`
-	PRIVATE_KEY string `json:"PRIVATE_KEY"`
-	MNEMONIC    string `json:"MNEMONIC"`
+	INFURA_KEY string `json:"INFURA_KEY"`
+	MNEMONIC   string `json:"MNEMONIC"`
 }
 
 func LoadConfig() (*Config, error) {
